@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetQueryStringLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryStringLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginWithParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:QueryStringLoginParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryStringLoginParameters">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TopBarVisible" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeftMenuVisible" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessFilter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parameters" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisableEBA3" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mobile" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DelegationFrom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DelegationFromType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delegated" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DelegationId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TestMode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeftMenuCollapsed" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClickCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpireDateTick" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivePosition" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQueryStringLoginWithParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryStringLoginWithParametersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginAsWithParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatingUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:QueryStringLoginParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginAsWithParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryStringLoginAsWithParametersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginDelegatedWithParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="impersonatingUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:QueryStringLoginParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStringLoginDelegatedWithParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryStringLoginDelegatedWithParametersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExternalUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExternalUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExternalUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInternalUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logonuser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInternalUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInternalUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetQueryStringLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLogin" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginWithParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginWithParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginWithParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginWithParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginAsWithParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginAsWithParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginAsWithParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginAsWithParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginDelegatedWithParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginDelegatedWithParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStringLoginDelegatedWithParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryStringLoginDelegatedWithParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExternalUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExternalUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetExternalUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExternalUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInternalUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInternalUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetInternalUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInternalUserIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="QueryStringLoginSoap">
+    <wsdl:operation name="GetQueryStringLogin">
+      <wsdl:input message="tns:GetQueryStringLoginSoapIn" />
+      <wsdl:output message="tns:GetQueryStringLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginWithParameters">
+      <wsdl:input message="tns:GetQueryStringLoginWithParametersSoapIn" />
+      <wsdl:output message="tns:GetQueryStringLoginWithParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginAsWithParameters">
+      <wsdl:input message="tns:GetQueryStringLoginAsWithParametersSoapIn" />
+      <wsdl:output message="tns:GetQueryStringLoginAsWithParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginDelegatedWithParameters">
+      <wsdl:input message="tns:GetQueryStringLoginDelegatedWithParametersSoapIn" />
+      <wsdl:output message="tns:GetQueryStringLoginDelegatedWithParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalUserId">
+      <wsdl:input message="tns:GetExternalUserIdSoapIn" />
+      <wsdl:output message="tns:GetExternalUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalUserId">
+      <wsdl:input message="tns:GetInternalUserIdSoapIn" />
+      <wsdl:output message="tns:GetInternalUserIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QueryStringLoginSoap" type="tns:QueryStringLoginSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQueryStringLogin">
+      <soap:operation soapAction="http://tempuri.org/GetQueryStringLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginWithParameters">
+      <soap:operation soapAction="http://tempuri.org/GetQueryStringLoginWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginAsWithParameters">
+      <soap:operation soapAction="http://tempuri.org/GetQueryStringLoginAsWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginDelegatedWithParameters">
+      <soap:operation soapAction="http://tempuri.org/GetQueryStringLoginDelegatedWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalUserId">
+      <soap:operation soapAction="http://tempuri.org/GetExternalUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalUserId">
+      <soap:operation soapAction="http://tempuri.org/GetInternalUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QueryStringLoginSoap12" type="tns:QueryStringLoginSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQueryStringLogin">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryStringLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginWithParameters">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryStringLoginWithParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginAsWithParameters">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryStringLoginAsWithParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStringLoginDelegatedWithParameters">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryStringLoginDelegatedWithParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetExternalUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInternalUserId">
+      <soap12:operation soapAction="http://tempuri.org/GetInternalUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueryStringLogin">
+    <wsdl:port name="QueryStringLoginSoap" binding="tns:QueryStringLoginSoap">
+      <soap:address location="https://eba.sedas.com/eba.net/ws/querystringlogin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QueryStringLoginSoap12" binding="tns:QueryStringLoginSoap12">
+      <soap12:address location="https://eba.sedas.com/eba.net/ws/querystringlogin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

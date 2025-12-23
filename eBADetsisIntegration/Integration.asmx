@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="Integration.asmx.cs" Class="eBADetsisIntegration.Integration" %>

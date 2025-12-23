@@ -1,0 +1,3766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetUserLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserLanguageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserLanguageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectsResult" type="tns:ArrayOfProject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Project">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorUserId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ProjectType" />
+          <s:element minOccurs="1" maxOccurs="1" name="FastApprove" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MultiLanguage" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManagerRoleType" nillable="true" type="tns:DMPermissionRoleType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManagerRoleID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowParentHistory" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProjectType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Standart" />
+          <s:enumeration value="Form" />
+          <s:enumeration value="Flow" />
+          <s:enumeration value="Solution" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DMPermissionRoleType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Role" />
+          <s:enumeration value="PositionRole" />
+          <s:enumeration value="ProfessionRole" />
+          <s:enumeration value="DepartmentRole" />
+          <s:enumeration value="GroupRole" />
+          <s:enumeration value="OwnerRole" />
+          <s:enumeration value="UserRole" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMessagesCountForMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessagesCountForMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMessagesCountForMobileResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:MessageListType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MessageListType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Coming" />
+          <s:enumeration value="Sents" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DeleteMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="tns:MessageItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MessageItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageContent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="CcList" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachments" type="tns:ArrayOfAttachment" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MessageType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReplyId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageParameters" type="tns:WFMessageParameters" />
+          <s:element minOccurs="0" maxOccurs="1" name="tmpFolderIDGuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Important" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecretMessage" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attachment" nillable="true" type="tns:Attachment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MessageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Normal" />
+          <s:enumeration value="Process" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WFMessageParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMessageListItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageListItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageListItemResult" type="tns:ArrayOfMessageListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageListItem" nillable="true" type="tns:MessageListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendtDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Important" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Childs" type="tns:ArrayOfMessageListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAnnouncementsCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnnouncementsCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAnnouncementsCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnnouncements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnnouncementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnnouncementsResult" type="tns:ArrayOfAnnouncement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnnouncement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Announcement" nillable="true" type="tns:Announcement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Announcement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnnouncementDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLanguages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguagesResult" type="tns:ArrayOfProject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthenticateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConnection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConnectionResult" type="tns:ConnectionInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConnectionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImpersonationUserId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendNewPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNewPasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserApplicationsForMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserApplicationsForMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserApplicationsForMobileResult" type="tns:NodeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="NodeItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="parentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NodeType" type="tns:MenuNodeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Childs" type="tns:ArrayOfNodeItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parameters" type="tns:ArrayOfNodeItemParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MenuNodeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="TextNode" />
+          <s:enumeration value="StartAProcess" />
+          <s:enumeration value="FillAForm" />
+          <s:enumeration value="ProcessArchive" />
+          <s:enumeration value="FormArchive" />
+          <s:enumeration value="ExternalWebApplication" />
+          <s:enumeration value="Archive" />
+          <s:enumeration value="Analyse" />
+          <s:enumeration value="Eba3Entegration" />
+          <s:enumeration value="DynamicArchive" />
+          <s:enumeration value="LayoutNode" />
+          <s:enumeration value="FlexPanel" />
+          <s:enumeration value="GroupPanel" />
+          <s:enumeration value="FlexNode" />
+          <s:enumeration value="ReferenceNode" />
+          <s:enumeration value="FlexPanelHeader" />
+          <s:enumeration value="Approvals" />
+          <s:enumeration value="Notifications" />
+          <s:enumeration value="SentItems" />
+          <s:enumeration value="Messages" />
+          <s:enumeration value="Drafts" />
+          <s:enumeration value="History" />
+          <s:enumeration value="DynamicArchiveWM" />
+          <s:enumeration value="ProcessManagement" />
+          <s:enumeration value="Startup" />
+          <s:enumeration value="Dashboard" />
+          <s:enumeration value="DMExplorer" />
+          <s:enumeration value="RMExplorer" />
+          <s:enumeration value="Delegation" />
+          <s:enumeration value="Announcement" />
+          <s:enumeration value="AppQuickAccess" />
+          <s:enumeration value="AppLastActions" />
+          <s:enumeration value="Search" />
+          <s:enumeration value="DMTree" />
+          <s:enumeration value="DMFavorites" />
+          <s:enumeration value="RMFavorites" />
+          <s:enumeration value="LastVisitedDocuments" />
+          <s:enumeration value="VirtualFolder" />
+          <s:enumeration value="FlowViewer" />
+          <s:enumeration value="DocumentViewer" />
+          <s:enumeration value="eBASelect" />
+          <s:enumeration value="ModalForm" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfNodeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NodeItem" nillable="true" type="tns:NodeItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNodeItemParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NodeItemParameter" nillable="true" type="tns:NodeItemParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NodeItemParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserApplications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUserid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserApplicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserApplicationsResult" type="tns:NodeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessFilterResult" type="tns:NodeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcesses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="process" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessesResult" type="tns:ArrayOfProcess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProcess">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Process" nillable="true" type="tns:Process" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Process">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinishDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Finished" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:ProcessStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessResult" type="tns:Process" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessAttributes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessAttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessAttributesResult" type="tns:ProcessAttributes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Attributes" type="tns:ArrayOfProcessAttribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessAttribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessAttribute" nillable="true" type="tns:ProcessAttribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessAttribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrjValue" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayFormat" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProcessHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessHistory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfProcessHistoryItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Columns" type="tns:ArrayOfProcessHistoryColumn" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApproverDescription" type="tns:ApproverDescriptionType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessHistoryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessHistoryItem" nillable="true" type="tns:ProcessHistoryItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessHistoryItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemType" type="tns:FlowHistoryItemType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestType" type="tns:FlowRequestType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Approver" type="tns:ApproverType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApproverUserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApproverDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApproverHidden" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Visible" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubProcessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationType" type="tns:RelationType" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnedStatus" type="tns:OwnStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FlowHistoryItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Request" />
+          <s:enumeration value="Status" />
+          <s:enumeration value="Subflow" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FlowRequestType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="User" />
+          <s:enumeration value="Notify" />
+          <s:enumeration value="DocCreator" />
+          <s:enumeration value="Trigger" />
+          <s:enumeration value="Starter" />
+          <s:enumeration value="Group" />
+          <s:enumeration value="Timer" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ApproverType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Self" />
+          <s:enumeration value="Delegated" />
+          <s:enumeration value="As" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RelationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Create" />
+          <s:enumeration value="Add" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="OwnStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotOwned" />
+          <s:enumeration value="OwnedByCurrent" />
+          <s:enumeration value="OwnedByAnother" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProcessHistoryColumn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessHistoryColumn" nillable="true" type="tns:ProcessHistoryColumn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessHistoryColumn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Column" type="tns:FlowHistoryColumnType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Visible" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FlowHistoryColumnType">
+        <s:restriction base="s:string">
+          <s:enumeration value="StatusIcon" />
+          <s:enumeration value="ApproverDescription" />
+          <s:enumeration value="Description" />
+          <s:enumeration value="StatusDescription" />
+          <s:enumeration value="RequestDate" />
+          <s:enumeration value="ResponseDate" />
+          <s:enumeration value="Reason" />
+          <s:enumeration value="OwnedDate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ApproverDescriptionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Both" />
+          <s:enumeration value="User" />
+          <s:enumeration value="Position" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetProcessHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessHistoryResult" type="tns:ProcessHistory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWaitingProcessRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessRequests">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectCaption" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="source" type="tns:ApplicationType" />
+          <s:element minOccurs="0" maxOccurs="1" name="eBA3ProcessCaption" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Requests" type="tns:ArrayOfProcessRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ApplicationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="eBA3" />
+          <s:enumeration value="eBA4" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProcessRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessRequest" nillable="true" type="tns:ProcessRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:ProcessStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSeen" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attributes" type="tns:ProcessAttributes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:RequestEvents" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlagColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestDate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestEvents">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfRequestEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRequestEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestEvent" nillable="true" type="tns:RequestEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestEvent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Confirm" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventForm" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DigitalSignatureRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonRequired" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessRequests">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessRequests" nillable="true" type="tns:ProcessRequests" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserWaitingProcessRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserWaitingProcessRequestsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWaitingProcessRequestsWithParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWaitingProcessRequestsWithParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserWaitingProcessRequestsWithParamsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultMessageSubject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultMessageSubjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDefaultMessageSubjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFlowGraph">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowFlowGraphResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ShowFlowGraphResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWaitingRequestsForProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="process" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWaitingRequestsForProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserWaitingRequestsForProcessResult" type="tns:ProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestNotifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestNotificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestNotificationsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestNotificationsWithParams">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestNotificationsWithParamsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestNotificationsWithParamsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestSents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestSentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestSentsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestSentsWithParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="finishDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestSentsWithParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestSentsWithParamResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestDrafts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestDraftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestDraftsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="historyType" type="tns:InboxOutboxType" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="finishDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="InboxOutboxType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Approvals" />
+          <s:enumeration value="Notifications" />
+          <s:enumeration value="Sents" />
+          <s:enumeration value="History" />
+          <s:enumeration value="Drafts" />
+          <s:enumeration value="Messages" />
+          <s:enumeration value="Announcement" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetUserProcessRequestHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestHistoryResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcessRequestDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessRequestDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProfileId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CanChange" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowEvents" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignType" type="tns:FlowPositionDocumentSignType" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseEmbeddedPDFSignature" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureVisibilityOnPage" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SignatureText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureVisiblePage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureLeftPosition" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureTopPosition" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureWidth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignatureHeight" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FlowPositionDocumentSignType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoSign" />
+          <s:enumeration value="Optional" />
+          <s:enumeration value="RequiredIfPossible" />
+          <s:enumeration value="Required" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProcessRequestDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessRequestDocument" nillable="true" type="tns:ProcessRequestDocument" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProcessRequestDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessRequestDocumentsResult" type="tns:ArrayOfProcessRequestDocument" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestType" type="tns:RequestType" />
+            <s:element minOccurs="1" maxOccurs="1" name="history" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="finishDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="RequestType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Approvals" />
+          <s:enumeration value="Notifications" />
+          <s:enumeration value="Sents" />
+          <s:enumeration value="Drafts" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetUserProcessRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestsResult" type="tns:ArrayOfProcessRequests" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestCounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="eBARequestCounts">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Approvals" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Notifications" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserProcessRequestCountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestCountsResult" type="tns:eBARequestCounts" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestCountsWithParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserProcessRequestCountsWithParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserProcessRequestCountsWithParametersResult" type="tns:eBARequestCounts" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotificationCountForMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotificationCountForMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNotificationCountForMobileResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcessByNodeIdForMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nodeId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WorkflowProceses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StartProcessByNodeIdForMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartProcessByNodeIdForMobileResult" type="tns:WorkflowProceses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGivenDelegation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AllDelegation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FullDelegation" type="tns:ArrayOfFullDelegation" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionBasedDelegation" type="tns:ArrayOfPositionDelegation" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessBasedDelegation" type="tns:ArrayOfProcessDelegation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFullDelegation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FullDelegation" nillable="true" type="tns:FullDelegation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FullDelegation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpireDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartaprocessPermission" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovePermission" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Active" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToUserId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcessDelegation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:FullDelegation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PositionDelegation">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:FullDelegation">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfPositionDelegation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PositionDelegation" nillable="true" type="tns:PositionDelegation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProcessDelegation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcessDelegation" nillable="true" type="tns:ProcessDelegation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGivenDelegationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGivenDelegationResult" type="tns:AllDelegation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDelegatedUsersProcessRequestCounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserRequestCountsProperties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnerType" type="tns:RequestOwner" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Approvals" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Notifications" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessFilter" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginStatus" type="tns:LoginStatusType" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartAProcessPermission" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApproveProcessPermission" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationMenuAllowed" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="DelegationTo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RequestOwner">
+        <s:restriction base="s:string">
+          <s:enumeration value="User" />
+          <s:enumeration value="Position" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LoginStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Self" />
+          <s:enumeration value="Delegated" />
+          <s:enumeration value="As" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfUserRequestCountsProperties">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserRequestCountsProperties" nillable="true" type="tns:UserRequestCountsProperties" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDelegatedUsersProcessRequestCountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDelegatedUsersProcessRequestCountsResult" type="tns:ArrayOfUserRequestCountsProperties" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:WorkflowStartParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WorkflowStartParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessParameters" type="tns:ArrayOfWorkflowParameter" />
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorkflowParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorkflowParameter" nillable="true" type="tns:WorkflowParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkflowParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkflowProcess">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorUser" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinishDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Finished" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:WorkflowProcessStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkflowProcessStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StartProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartProcessResult" type="tns:WorkflowProcess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcessByNodeId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nodeId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartProcessByNodeIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartProcessByNodeIdResult" type="tns:WorkflowProceses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nodeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenApplicationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContinueProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:WorkflowContinueParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WorkflowContinueParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessParameters" type="tns:ArrayOfWorkflowParameter" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnValue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventFormId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ContinueProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContinueProcessResult" type="tns:WorkflowProcess" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContinueProcessWithValidation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="evetId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reasonText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ContProcessOutParameters">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="HasKEP" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasSignature" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasEventForm" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasReason" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasValidation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidationDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContinueStatus" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ContinueProcessWithValidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContinueProcessWithValidationResult" type="tns:ContProcessOutParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContinueProcessWithSignValidation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="evetId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reasonText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasSigned" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContinueProcessWithSignValidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContinueProcessWithSignValidationResult" type="tns:ContProcessOutParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:CreateFormParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateFormParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Form" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorkflowDocument">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateFormResult" type="tns:WorkflowDocument" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:CreateAttachmentParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateAttachmentParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Form" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateAttachmentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:GetAttachmentParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAttachmentParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Form" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentFileName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttachmentResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttachments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:GetAttachmentsParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAttachmentsParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Form" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attachments">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Categories" type="tns:ArrayOfAttachmentCategory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttachmentCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AttachmentCategory" nillable="true" type="tns:AttachmentCategory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttachmentCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Files" type="tns:ArrayOfAttachmentFile" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttachmentFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AttachmentFile" nillable="true" type="tns:AttachmentFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttachmentFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAttachmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttachmentsResult" type="tns:Attachments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlowGraphImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="colorRGB" type="tns:FlowBackgroundColor" />
+            <s:element minOccurs="1" maxOccurs="1" name="scale" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FlowBackgroundColor">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="A" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="R" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="G" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="B" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFlowGraphImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlowGraphImageResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlowIcon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iconName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlowIconResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlowIconResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMobileForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMobileFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMobileFormResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DetailedRequestEvents">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfDetailedRequestEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetailedRequestEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetailedRequestEvent" nillable="true" type="tns:DetailedRequestEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetailedRequestEvent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonRequired" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Validate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventForm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventIcon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventIconColor" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Confirm" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DigitalSignatureRequired" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestEventsResult" type="tns:DetailedRequestEvents" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentsByProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DocumentView">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PublicFields" type="tns:ArrayOfDocumentPublicField" />
+          <s:element minOccurs="0" maxOccurs="1" name="Link" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentPublicField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentPublicField" nillable="true" type="tns:DocumentPublicField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentPublicField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentView">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentView" nillable="true" type="tns:DocumentView" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocumentsByProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentsByProcessResult" type="tns:ArrayOfDocumentView" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filePath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PublishResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsSuccessful" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessStarted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PublishFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PublishFileResult" type="tns:PublishResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ControlProcessInDrafts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="retVal" type="tns:PublishResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="processId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="internalUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ControlProcessInDraftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ControlProcessInDraftsResult" type="tns:PublishResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Users" type="tns:ArrayOfUser" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visibilities" type="tns:ArrayOfVisibleField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfessionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVisibleField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VisibleField" nillable="true" type="tns:VisibleField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VisibleField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersResult" type="tns:UserInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDelegablePositions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WSPosition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWSPosition">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSPosition" nillable="true" type="tns:WSPosition" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDelegablePositionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDelegablePositionsResult" type="tns:ArrayOfWSPosition" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDelegation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="delegetation" type="tns:Delegation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Delegation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DelType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Process" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoExpire" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="startAProcessPermission" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="approvePermission" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddDelegationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDelegableApplications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDelegableApplicationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDelegableApplicationsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDelegation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDelegationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDelegationProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="delegationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDelegationPropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDelegationPropertiesResult" type="tns:UserRequestCountsProperties" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="targetUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPasswordAgain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIntegrationManagerQueriesNames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="connectionName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIntegrationManagerQueriesNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIntegrationManagerQueriesNamesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetUserLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserLanguage" />
+  </wsdl:message>
+  <wsdl:message name="SetUserLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjects" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessagesCountForMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessagesCountForMobile" />
+  </wsdl:message>
+  <wsdl:message name="GetMessagesCountForMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessagesCountForMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageListItem" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageListItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnnouncementsCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnnouncementsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetAnnouncementsCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnnouncementsCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnnouncementsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnnouncements" />
+  </wsdl:message>
+  <wsdl:message name="GetAnnouncementsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnnouncementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConnection" />
+  </wsdl:message>
+  <wsdl:message name="GetConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendNewPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:SendNewPassword" />
+  </wsdl:message>
+  <wsdl:message name="SendNewPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:SendNewPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserApplicationsForMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserApplicationsForMobile" />
+  </wsdl:message>
+  <wsdl:message name="GetUserApplicationsForMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserApplicationsForMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserApplicationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserApplications" />
+  </wsdl:message>
+  <wsdl:message name="GetUserApplicationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessFilter" />
+  </wsdl:message>
+  <wsdl:message name="ProcessFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcesses" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcess" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessAttributesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessAttributes" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessAttributesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingProcessRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingProcessRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingProcessRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingProcessRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingProcessRequestsWithParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingProcessRequestsWithParams" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingProcessRequestsWithParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingProcessRequestsWithParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultMessageSubjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultMessageSubject" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultMessageSubjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefaultMessageSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowFlowGraphSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowFlowGraph" />
+  </wsdl:message>
+  <wsdl:message name="ShowFlowGraphSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowFlowGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingRequestsForProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingRequestsForProcess" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWaitingRequestsForProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserWaitingRequestsForProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestNotificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestNotifications" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestNotificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestNotificationsWithParamsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestNotificationsWithParams" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestNotificationsWithParamsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestNotificationsWithParamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestSentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestSents" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestSentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestSentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestSentsWithParamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestSentsWithParam" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestSentsWithParamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestSentsWithParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestDraftsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestDrafts" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestDraftsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestDraftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessRequestDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessRequestDocuments" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessRequestDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessRequestDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestCountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestCounts" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestCountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestCountsWithParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestCountsWithParameters" />
+  </wsdl:message>
+  <wsdl:message name="GetUserProcessRequestCountsWithParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserProcessRequestCountsWithParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationCountForMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotificationCountForMobile" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationCountForMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotificationCountForMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessByNodeIdForMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:StartProcessByNodeIdForMobile" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessByNodeIdForMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:StartProcessByNodeIdForMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGivenDelegationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGivenDelegation" />
+  </wsdl:message>
+  <wsdl:message name="GetGivenDelegationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGivenDelegationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegatedUsersProcessRequestCountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDelegatedUsersProcessRequestCounts" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegatedUsersProcessRequestCountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDelegatedUsersProcessRequestCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:StartProcess" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:StartProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessByNodeIdSoapIn">
+    <wsdl:part name="parameters" element="tns:StartProcessByNodeId" />
+  </wsdl:message>
+  <wsdl:message name="StartProcessByNodeIdSoapOut">
+    <wsdl:part name="parameters" element="tns:StartProcessByNodeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenApplication" />
+  </wsdl:message>
+  <wsdl:message name="OpenApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:ContinueProcess" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:ContinueProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessWithValidationSoapIn">
+    <wsdl:part name="parameters" element="tns:ContinueProcessWithValidation" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessWithValidationSoapOut">
+    <wsdl:part name="parameters" element="tns:ContinueProcessWithValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessWithSignValidationSoapIn">
+    <wsdl:part name="parameters" element="tns:ContinueProcessWithSignValidation" />
+  </wsdl:message>
+  <wsdl:message name="ContinueProcessWithSignValidationSoapOut">
+    <wsdl:part name="parameters" element="tns:ContinueProcessWithSignValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateFormSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateForm" />
+  </wsdl:message>
+  <wsdl:message name="CreateFormSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAttachment" />
+  </wsdl:message>
+  <wsdl:message name="CreateAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttachments" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttachmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowGraphImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlowGraphImage" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowGraphImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlowGraphImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowIconSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlowIcon" />
+  </wsdl:message>
+  <wsdl:message name="GetFlowIconSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlowIconResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileFormSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMobileForm" />
+  </wsdl:message>
+  <wsdl:message name="GetMobileFormSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMobileFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByProcess" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishFileSoapIn">
+    <wsdl:part name="parameters" element="tns:PublishFile" />
+  </wsdl:message>
+  <wsdl:message name="PublishFileSoapOut">
+    <wsdl:part name="parameters" element="tns:PublishFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ControlProcessInDraftsSoapIn">
+    <wsdl:part name="parameters" element="tns:ControlProcessInDrafts" />
+  </wsdl:message>
+  <wsdl:message name="ControlProcessInDraftsSoapOut">
+    <wsdl:part name="parameters" element="tns:ControlProcessInDraftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegablePositionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDelegablePositions" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegablePositionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDelegablePositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddDelegationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddDelegation" />
+  </wsdl:message>
+  <wsdl:message name="AddDelegationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddDelegationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegableApplicationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDelegableApplications" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegableApplicationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDelegableApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDelegationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDelegation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDelegationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDelegationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegationPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDelegationProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetDelegationPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDelegationPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationManagerQueriesNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIntegrationManagerQueriesNames" />
+  </wsdl:message>
+  <wsdl:message name="GetIntegrationManagerQueriesNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIntegrationManagerQueriesNamesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="eBAWSAPISoap">
+    <wsdl:operation name="GetUserLanguage">
+      <wsdl:input message="tns:GetUserLanguageSoapIn" />
+      <wsdl:output message="tns:GetUserLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserLanguage">
+      <wsdl:input message="tns:SetUserLanguageSoapIn" />
+      <wsdl:output message="tns:SetUserLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <wsdl:input message="tns:GetProjectsSoapIn" />
+      <wsdl:output message="tns:GetProjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesCountForMobile">
+      <wsdl:input message="tns:GetMessagesCountForMobileSoapIn" />
+      <wsdl:output message="tns:GetMessagesCountForMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input message="tns:DeleteMessageSoapIn" />
+      <wsdl:output message="tns:DeleteMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="tns:SendMessageSoapIn" />
+      <wsdl:output message="tns:SendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageListItem">
+      <wsdl:input message="tns:GetMessageListItemSoapIn" />
+      <wsdl:output message="tns:GetMessageListItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncementsCount">
+      <wsdl:input message="tns:GetAnnouncementsCountSoapIn" />
+      <wsdl:output message="tns:GetAnnouncementsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncements">
+      <wsdl:input message="tns:GetAnnouncementsSoapIn" />
+      <wsdl:output message="tns:GetAnnouncementsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input message="tns:GetLanguagesSoapIn" />
+      <wsdl:output message="tns:GetLanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnection">
+      <wsdl:input message="tns:GetConnectionSoapIn" />
+      <wsdl:output message="tns:GetConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewPassword">
+      <wsdl:input message="tns:SendNewPasswordSoapIn" />
+      <wsdl:output message="tns:SendNewPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplicationsForMobile">
+      <wsdl:input message="tns:GetUserApplicationsForMobileSoapIn" />
+      <wsdl:output message="tns:GetUserApplicationsForMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplications">
+      <wsdl:input message="tns:GetUserApplicationsSoapIn" />
+      <wsdl:output message="tns:GetUserApplicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessFilter">
+      <wsdl:input message="tns:ProcessFilterSoapIn" />
+      <wsdl:output message="tns:ProcessFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <wsdl:input message="tns:GetProcessesSoapIn" />
+      <wsdl:output message="tns:GetProcessesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcess">
+      <wsdl:input message="tns:GetProcessSoapIn" />
+      <wsdl:output message="tns:GetProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessAttributes">
+      <wsdl:input message="tns:GetProcessAttributesSoapIn" />
+      <wsdl:output message="tns:GetProcessAttributesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessHistory">
+      <wsdl:input message="tns:GetProcessHistorySoapIn" />
+      <wsdl:output message="tns:GetProcessHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequests">
+      <wsdl:input message="tns:GetUserWaitingProcessRequestsSoapIn" />
+      <wsdl:output message="tns:GetUserWaitingProcessRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequestsWithParams">
+      <wsdl:input message="tns:GetUserWaitingProcessRequestsWithParamsSoapIn" />
+      <wsdl:output message="tns:GetUserWaitingProcessRequestsWithParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMessageSubject">
+      <wsdl:input message="tns:GetDefaultMessageSubjectSoapIn" />
+      <wsdl:output message="tns:GetDefaultMessageSubjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowFlowGraph">
+      <wsdl:input message="tns:ShowFlowGraphSoapIn" />
+      <wsdl:output message="tns:ShowFlowGraphSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingRequestsForProcess">
+      <wsdl:input message="tns:GetUserWaitingRequestsForProcessSoapIn" />
+      <wsdl:output message="tns:GetUserWaitingRequestsForProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotifications">
+      <wsdl:input message="tns:GetUserProcessRequestNotificationsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestNotificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotificationsWithParams">
+      <wsdl:input message="tns:GetUserProcessRequestNotificationsWithParamsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestNotificationsWithParamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSents">
+      <wsdl:input message="tns:GetUserProcessRequestSentsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestSentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSentsWithParam">
+      <wsdl:input message="tns:GetUserProcessRequestSentsWithParamSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestSentsWithParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestDrafts">
+      <wsdl:input message="tns:GetUserProcessRequestDraftsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestDraftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestHistory">
+      <wsdl:input message="tns:GetUserProcessRequestHistorySoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessRequestDocuments">
+      <wsdl:input message="tns:GetProcessRequestDocumentsSoapIn" />
+      <wsdl:output message="tns:GetProcessRequestDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequests">
+      <wsdl:input message="tns:GetUserProcessRequestsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCounts">
+      <wsdl:input message="tns:GetUserProcessRequestCountsSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestCountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCountsWithParameters">
+      <wsdl:input message="tns:GetUserProcessRequestCountsWithParametersSoapIn" />
+      <wsdl:output message="tns:GetUserProcessRequestCountsWithParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCountForMobile">
+      <wsdl:input message="tns:GetNotificationCountForMobileSoapIn" />
+      <wsdl:output message="tns:GetNotificationCountForMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeIdForMobile">
+      <wsdl:input message="tns:StartProcessByNodeIdForMobileSoapIn" />
+      <wsdl:output message="tns:StartProcessByNodeIdForMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGivenDelegation">
+      <wsdl:input message="tns:GetGivenDelegationSoapIn" />
+      <wsdl:output message="tns:GetGivenDelegationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegatedUsersProcessRequestCounts">
+      <wsdl:input message="tns:GetDelegatedUsersProcessRequestCountsSoapIn" />
+      <wsdl:output message="tns:GetDelegatedUsersProcessRequestCountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input message="tns:StartProcessSoapIn" />
+      <wsdl:output message="tns:StartProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeId">
+      <wsdl:input message="tns:StartProcessByNodeIdSoapIn" />
+      <wsdl:output message="tns:StartProcessByNodeIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenApplication">
+      <wsdl:input message="tns:OpenApplicationSoapIn" />
+      <wsdl:output message="tns:OpenApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcess">
+      <wsdl:input message="tns:ContinueProcessSoapIn" />
+      <wsdl:output message="tns:ContinueProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithValidation">
+      <wsdl:input message="tns:ContinueProcessWithValidationSoapIn" />
+      <wsdl:output message="tns:ContinueProcessWithValidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithSignValidation">
+      <wsdl:input message="tns:ContinueProcessWithSignValidationSoapIn" />
+      <wsdl:output message="tns:ContinueProcessWithSignValidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateForm">
+      <wsdl:input message="tns:CreateFormSoapIn" />
+      <wsdl:output message="tns:CreateFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAttachment">
+      <wsdl:input message="tns:CreateAttachmentSoapIn" />
+      <wsdl:output message="tns:CreateAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <wsdl:input message="tns:GetAttachmentSoapIn" />
+      <wsdl:output message="tns:GetAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachments">
+      <wsdl:input message="tns:GetAttachmentsSoapIn" />
+      <wsdl:output message="tns:GetAttachmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowGraphImage">
+      <wsdl:input message="tns:GetFlowGraphImageSoapIn" />
+      <wsdl:output message="tns:GetFlowGraphImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowIcon">
+      <wsdl:input message="tns:GetFlowIconSoapIn" />
+      <wsdl:output message="tns:GetFlowIconSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileForm">
+      <wsdl:input message="tns:GetMobileFormSoapIn" />
+      <wsdl:output message="tns:GetMobileFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestEvents">
+      <wsdl:input message="tns:GetRequestEventsSoapIn" />
+      <wsdl:output message="tns:GetRequestEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByProcess">
+      <wsdl:input message="tns:GetDocumentsByProcessSoapIn" />
+      <wsdl:output message="tns:GetDocumentsByProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishFile">
+      <wsdl:input message="tns:PublishFileSoapIn" />
+      <wsdl:output message="tns:PublishFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ControlProcessInDrafts">
+      <wsdl:input message="tns:ControlProcessInDraftsSoapIn" />
+      <wsdl:output message="tns:ControlProcessInDraftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersSoapIn" />
+      <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegablePositions">
+      <wsdl:input message="tns:GetDelegablePositionsSoapIn" />
+      <wsdl:output message="tns:GetDelegablePositionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDelegation">
+      <wsdl:input message="tns:AddDelegationSoapIn" />
+      <wsdl:output message="tns:AddDelegationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegableApplications">
+      <wsdl:input message="tns:GetDelegableApplicationsSoapIn" />
+      <wsdl:output message="tns:GetDelegableApplicationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDelegation">
+      <wsdl:input message="tns:DeleteDelegationSoapIn" />
+      <wsdl:output message="tns:DeleteDelegationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegationProperties">
+      <wsdl:input message="tns:GetDelegationPropertiesSoapIn" />
+      <wsdl:output message="tns:GetDelegationPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationManagerQueriesNames">
+      <wsdl:input message="tns:GetIntegrationManagerQueriesNamesSoapIn" />
+      <wsdl:output message="tns:GetIntegrationManagerQueriesNamesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eBAWSAPISoap" type="tns:eBAWSAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserLanguage">
+      <soap:operation soapAction="http://tempuri.org/GetUserLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserLanguage">
+      <soap:operation soapAction="http://tempuri.org/SetUserLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <soap:operation soapAction="http://tempuri.org/GetProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesCountForMobile">
+      <soap:operation soapAction="http://tempuri.org/GetMessagesCountForMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap:operation soapAction="http://tempuri.org/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageListItem">
+      <soap:operation soapAction="http://tempuri.org/GetMessageListItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncementsCount">
+      <soap:operation soapAction="http://tempuri.org/GetAnnouncementsCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncements">
+      <soap:operation soapAction="http://tempuri.org/GetAnnouncements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://tempuri.org/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnection">
+      <soap:operation soapAction="http://tempuri.org/GetConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewPassword">
+      <soap:operation soapAction="http://tempuri.org/SendNewPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplicationsForMobile">
+      <soap:operation soapAction="http://tempuri.org/GetUserApplicationsForMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplications">
+      <soap:operation soapAction="http://tempuri.org/GetUserApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessFilter">
+      <soap:operation soapAction="http://tempuri.org/ProcessFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <soap:operation soapAction="http://tempuri.org/GetProcesses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcess">
+      <soap:operation soapAction="http://tempuri.org/GetProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessAttributes">
+      <soap:operation soapAction="http://tempuri.org/GetProcessAttributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessHistory">
+      <soap:operation soapAction="http://tempuri.org/GetProcessHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequests">
+      <soap:operation soapAction="http://tempuri.org/GetUserWaitingProcessRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequestsWithParams">
+      <soap:operation soapAction="http://tempuri.org/GetUserWaitingProcessRequestsWithParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMessageSubject">
+      <soap:operation soapAction="http://tempuri.org/GetDefaultMessageSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFlowGraph">
+      <soap:operation soapAction="http://tempuri.org/ShowFlowGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingRequestsForProcess">
+      <soap:operation soapAction="http://tempuri.org/GetUserWaitingRequestsForProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotifications">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotificationsWithParams">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestNotificationsWithParams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSents">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestSents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSentsWithParam">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestSentsWithParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestDrafts">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestDrafts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestHistory">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessRequestDocuments">
+      <soap:operation soapAction="http://tempuri.org/GetProcessRequestDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequests">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCounts">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCountsWithParameters">
+      <soap:operation soapAction="http://tempuri.org/GetUserProcessRequestCountsWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCountForMobile">
+      <soap:operation soapAction="http://tempuri.org/GetNotificationCountForMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeIdForMobile">
+      <soap:operation soapAction="http://tempuri.org/StartProcessByNodeIdForMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGivenDelegation">
+      <soap:operation soapAction="http://tempuri.org/GetGivenDelegation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegatedUsersProcessRequestCounts">
+      <soap:operation soapAction="http://tempuri.org/GetDelegatedUsersProcessRequestCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap:operation soapAction="http://tempuri.org/StartProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeId">
+      <soap:operation soapAction="http://tempuri.org/StartProcessByNodeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenApplication">
+      <soap:operation soapAction="http://tempuri.org/OpenApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcess">
+      <soap:operation soapAction="http://tempuri.org/ContinueProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithValidation">
+      <soap:operation soapAction="http://tempuri.org/ContinueProcessWithValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithSignValidation">
+      <soap:operation soapAction="http://tempuri.org/ContinueProcessWithSignValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateForm">
+      <soap:operation soapAction="http://tempuri.org/CreateForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAttachment">
+      <soap:operation soapAction="http://tempuri.org/CreateAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <soap:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachments">
+      <soap:operation soapAction="http://tempuri.org/GetAttachments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowGraphImage">
+      <soap:operation soapAction="http://tempuri.org/GetFlowGraphImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowIcon">
+      <soap:operation soapAction="http://tempuri.org/GetFlowIcon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileForm">
+      <soap:operation soapAction="http://tempuri.org/GetMobileForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestEvents">
+      <soap:operation soapAction="http://tempuri.org/GetRequestEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByProcess">
+      <soap:operation soapAction="http://tempuri.org/GetDocumentsByProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishFile">
+      <soap:operation soapAction="http://tempuri.org/PublishFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ControlProcessInDrafts">
+      <soap:operation soapAction="http://tempuri.org/ControlProcessInDrafts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegablePositions">
+      <soap:operation soapAction="http://tempuri.org/GetDelegablePositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDelegation">
+      <soap:operation soapAction="http://tempuri.org/AddDelegation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegableApplications">
+      <soap:operation soapAction="http://tempuri.org/GetDelegableApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDelegation">
+      <soap:operation soapAction="http://tempuri.org/DeleteDelegation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegationProperties">
+      <soap:operation soapAction="http://tempuri.org/GetDelegationProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationManagerQueriesNames">
+      <soap:operation soapAction="http://tempuri.org/GetIntegrationManagerQueriesNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eBAWSAPISoap12" type="tns:eBAWSAPISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserLanguage">
+      <soap12:operation soapAction="http://tempuri.org/GetUserLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserLanguage">
+      <soap12:operation soapAction="http://tempuri.org/SetUserLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjects">
+      <soap12:operation soapAction="http://tempuri.org/GetProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessagesCountForMobile">
+      <soap12:operation soapAction="http://tempuri.org/GetMessagesCountForMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageListItem">
+      <soap12:operation soapAction="http://tempuri.org/GetMessageListItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncementsCount">
+      <soap12:operation soapAction="http://tempuri.org/GetAnnouncementsCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnouncements">
+      <soap12:operation soapAction="http://tempuri.org/GetAnnouncements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap12:operation soapAction="http://tempuri.org/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnection">
+      <soap12:operation soapAction="http://tempuri.org/GetConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewPassword">
+      <soap12:operation soapAction="http://tempuri.org/SendNewPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplicationsForMobile">
+      <soap12:operation soapAction="http://tempuri.org/GetUserApplicationsForMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserApplications">
+      <soap12:operation soapAction="http://tempuri.org/GetUserApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessFilter">
+      <soap12:operation soapAction="http://tempuri.org/ProcessFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcesses">
+      <soap12:operation soapAction="http://tempuri.org/GetProcesses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcess">
+      <soap12:operation soapAction="http://tempuri.org/GetProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessAttributes">
+      <soap12:operation soapAction="http://tempuri.org/GetProcessAttributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessHistory">
+      <soap12:operation soapAction="http://tempuri.org/GetProcessHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequests">
+      <soap12:operation soapAction="http://tempuri.org/GetUserWaitingProcessRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingProcessRequestsWithParams">
+      <soap12:operation soapAction="http://tempuri.org/GetUserWaitingProcessRequestsWithParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMessageSubject">
+      <soap12:operation soapAction="http://tempuri.org/GetDefaultMessageSubject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowFlowGraph">
+      <soap12:operation soapAction="http://tempuri.org/ShowFlowGraph" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWaitingRequestsForProcess">
+      <soap12:operation soapAction="http://tempuri.org/GetUserWaitingRequestsForProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotifications">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestNotifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestNotificationsWithParams">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestNotificationsWithParams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSents">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestSents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestSentsWithParam">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestSentsWithParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestDrafts">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestDrafts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestHistory">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessRequestDocuments">
+      <soap12:operation soapAction="http://tempuri.org/GetProcessRequestDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequests">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCounts">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProcessRequestCountsWithParameters">
+      <soap12:operation soapAction="http://tempuri.org/GetUserProcessRequestCountsWithParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationCountForMobile">
+      <soap12:operation soapAction="http://tempuri.org/GetNotificationCountForMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeIdForMobile">
+      <soap12:operation soapAction="http://tempuri.org/StartProcessByNodeIdForMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGivenDelegation">
+      <soap12:operation soapAction="http://tempuri.org/GetGivenDelegation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegatedUsersProcessRequestCounts">
+      <soap12:operation soapAction="http://tempuri.org/GetDelegatedUsersProcessRequestCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap12:operation soapAction="http://tempuri.org/StartProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessByNodeId">
+      <soap12:operation soapAction="http://tempuri.org/StartProcessByNodeId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenApplication">
+      <soap12:operation soapAction="http://tempuri.org/OpenApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcess">
+      <soap12:operation soapAction="http://tempuri.org/ContinueProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithValidation">
+      <soap12:operation soapAction="http://tempuri.org/ContinueProcessWithValidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContinueProcessWithSignValidation">
+      <soap12:operation soapAction="http://tempuri.org/ContinueProcessWithSignValidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateForm">
+      <soap12:operation soapAction="http://tempuri.org/CreateForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAttachment">
+      <soap12:operation soapAction="http://tempuri.org/CreateAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <soap12:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachments">
+      <soap12:operation soapAction="http://tempuri.org/GetAttachments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowGraphImage">
+      <soap12:operation soapAction="http://tempuri.org/GetFlowGraphImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlowIcon">
+      <soap12:operation soapAction="http://tempuri.org/GetFlowIcon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileForm">
+      <soap12:operation soapAction="http://tempuri.org/GetMobileForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetRequestEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByProcess">
+      <soap12:operation soapAction="http://tempuri.org/GetDocumentsByProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishFile">
+      <soap12:operation soapAction="http://tempuri.org/PublishFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ControlProcessInDrafts">
+      <soap12:operation soapAction="http://tempuri.org/ControlProcessInDrafts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegablePositions">
+      <soap12:operation soapAction="http://tempuri.org/GetDelegablePositions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDelegation">
+      <soap12:operation soapAction="http://tempuri.org/AddDelegation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegableApplications">
+      <soap12:operation soapAction="http://tempuri.org/GetDelegableApplications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDelegation">
+      <soap12:operation soapAction="http://tempuri.org/DeleteDelegation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegationProperties">
+      <soap12:operation soapAction="http://tempuri.org/GetDelegationProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntegrationManagerQueriesNames">
+      <soap12:operation soapAction="http://tempuri.org/GetIntegrationManagerQueriesNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eBAWSAPI">
+    <wsdl:port name="eBAWSAPISoap" binding="tns:eBAWSAPISoap">
+      <soap:address location="https://eba.sedas.com/eba.net/ws/ebawsapi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="eBAWSAPISoap12" binding="tns:eBAWSAPISoap12">
+      <soap12:address location="https://eba.sedas.com/eba.net/ws/ebawsapi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

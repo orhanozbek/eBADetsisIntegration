@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GetDetsisConsole.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GetDetsisConsole_DetsisSrv_Integration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/DetsisTest/integration.asmx</Value>
+    </Setting>
+    <Setting Name="GetDetsisConsole_kaysis_DETSISServis" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://bbws.kaysis.gov.tr/DETSISServis.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
